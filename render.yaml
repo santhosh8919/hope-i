@@ -1,0 +1,42 @@
+services:
+  # Backend service
+  - type: web
+    name: hope-ai
+    env: node
+    nodeVersion: 18.17.0
+    buildCommand: |
+      # Set Node.js version
+      export NODE_VERSION=18.17.0
+      export PATH="/opt/render/project/nodes/node-${NODE_VERSION}/bin:$PATH"
+      
+      # Install frontend dependencies and build
+      cd frontend
+      chmod +x build.sh
+      ./build.sh
+      
+      # Install backend dependencies
+      cd ../backend
+      chmod +x build.sh
+      ./build.sh
+      
+      # Verify Node.js version
+      node -v
+    startCommand: |
+      export NODE_VERSION=18.17.0
+      export PATH="/opt/render/project/nodes/node-${NODE_VERSION}/bin:$PATH"
+      cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: VITE_API_URL
+        value: https://hope-ai.onrender.com 
