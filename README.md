@@ -50,9 +50,6 @@ Live Demo: Hope-I on Render
 
 * Start the development server.
 
-### Screenshots
-
-Add screenshots here after uploading them.
 
 ### Author
 
