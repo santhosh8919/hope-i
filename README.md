@@ -1,4 +1,4 @@
-# Hope-I — AI Healthcare Platform
+# Hope-I  
 
 **Hope-I** is a full-stack healthcare web application that connects **Patients, Doctors, and Admins** through a secure platform. It includes role-based authentication, healthcare management features, and an AI-powered chatbot to assist users with health-related queries.
 
